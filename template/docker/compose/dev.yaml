@@ -2,7 +2,9 @@ version: '2'
 services:
   db:
     image: postgres
+    container_name: {{name}}_db
     environment:
+      - POSTGRES_DB={{name}}
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=app
     ports:
@@ -26,6 +28,7 @@ services:
       - ../..:/app
   nginx:
     image: nginx
+    container_name: {{name}}_nginx
     network_mode: "host"
     volumes:
       - ../nginx/default_local:/etc/nginx/conf.d/default.conf

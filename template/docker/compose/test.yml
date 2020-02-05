@@ -2,6 +2,7 @@ version: '3'
 services:
   {{name}}:
     image: ${TEST_IMAGE}
+    container_name: {{name}}_test
     depends_on:
       - db
     environment:

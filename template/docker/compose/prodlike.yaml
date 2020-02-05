@@ -2,6 +2,7 @@ version: '2'
 services:
   db:
     image: postgres
+    container_name: {{name}}_db
     environment:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=app

@@ -39,9 +39,11 @@ function devhelp {
     echo -e ""
     echo -e "${GREEN}dkup${RESTORE}              Starts a dockerized ${RED}full development environment${RESTORE}"
     echo -e ""
+    echo -e "${GREEN}dkupd${RESTORE}              Starts a dockerized ${RED}full development environment in background${RESTORE}"
+    echo -e ""
     echo -e "${GREEN}dk <command>${RESTORE}      Runs ${RED}<command>${RESTORE} inside main container"
-    echo -e "                  Example:"
-    echo -e "                   dk ${RED}bash${RESTORE}"
+    echo -e "           Example:"
+    echo -e "               dk ${RED}bash${RESTORE}"
     echo -e ""
     echo -e "${GREEN}dkrun_prod${RESTORE}        Starts django and nuxt (dockerized) in production mode"
     echo -e ""
@@ -110,6 +112,15 @@ function dkup {
     CD=$(pwd)
     cd $PROJ_BASE
     docker-compose -f docker/compose/dev.yaml up
+    exitcode=$?
+    cd $CD
+    return $exitcode
+}
+
+function dkupd {
+    CD=$(pwd)
+    cd $PROJ_BASE
+    docker-compose -f docker/compose/dev.yaml up -d
     exitcode=$?
     cd $CD
     return $exitcode
