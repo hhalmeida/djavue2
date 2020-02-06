@@ -4,6 +4,7 @@ services:
     image: postgres
     container_name: {{name}}_db
     environment:
+      - POSTGRES_DB={{name}}
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=app
     ports:

@@ -4,6 +4,7 @@ services:
     image: postgres
     container_name: {{name}}_db
     environment:
+      - POSTGRES_DB={{name}}
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=app
     ports:
@@ -12,7 +13,7 @@ services:
       - ../dkdata/postgres:/var/lib/postgresql/data
   web:
     image: {{name}}
-    container_name: {{name}}
+    container_name: {{name}}_web
     build: .
     command: start_web.sh
     environment:
