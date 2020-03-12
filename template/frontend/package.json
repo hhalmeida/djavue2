@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "wock": "CROSS-ENV NODE_ENV=development PORT=3001 HOST=0.0.0.0 API_MOCK=1 npm run dev",
+    "dew": "CROSS-ENV NODE_ENV=development PORT=3000 HOST=0.0.0.0 API_MOCK=0 BASE_URL=http://localhost:8000 npm run dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -25,6 +27,7 @@
     "@nuxtjs/router": "^1.5.0",
     "@nuxtjs/vuetify": "^1.9.0",
     "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
