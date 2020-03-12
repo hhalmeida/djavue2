@@ -1,6 +1,6 @@
-# lanceotimo-vue
+# {{name}}
 
-> lanceotimo-vue
+> {{name}}
 
 ## Build Setup
 
